@@ -1,5 +1,6 @@
 # SwarmAlgorithms
 
+
 This repository contains a few swarm algorithm projects that I've been working on recently. The projects are often inspired by a group of papers, which I impliment and 
 improve on in some way, or introduce in a novel situation. The primary goal of these projects is to learn more through applying my knowledge. 
 <b>Note: This repository contains only the code from my Unity project! If you would like to run the code, you will need the entire project, please reach out to me
@@ -18,7 +19,13 @@ We begin with two assumptions: first, each robot has some sensor range, and can 
 2. Each robot has a small probability of becoming a seed robot. If it becomes a seed robot, then it, along with two of its neighbors create a new coordinate system.
 The ID of this coordinate system is the ID of the first seed robot, and thus each coordinate system has a unique ID.
 3. If a robot has no coordinate system, it searches for a group of three robots that share the same coordinate system, and trilaterates its position from them.
+
+![Alt text](images/image4.png?raw=true "Trilateration example")
+
 4. After a small amount of time has passed, each robot will belong to one of many different coordinate systems. From here, the group must decide on one.
+
+![Alt text](images/image2.png?raw=true "Multiple Coordinate systems")
+
 5. Each robot has a probability of invading another coordinate system (now called regions), this probability is related to the robots position, and an enemy
 robots position (where an enemy robot is any robot within range, in another coordinate system). Because each region is roughly circular, the larger the robots
 magnitude of position, the larger its region is, and therefore the larger its probability of invading smaller regions. Once a robot invades a region, the invaded
@@ -27,7 +34,6 @@ robots change their coordinate systems to the invaders, using trilateration.
 7. Optionally, each robot can further fine-tune their position using gradient descent and trilateration.
 
 The algorithm has been expirmentally shown to work well for upto 800 robots, most of the time. 
-
 
 ### Clustering and Dynamic task-allocation
 An interesting problem encountered often in nature, is deciding who has to do what. This problem is known as dynamic task allocation. In this project there are resources
@@ -50,6 +56,10 @@ Now, lets look at the algorithm:
 in the factory. When a factory process materail, it removes the material from the enviornment, and produces new ants (in the simulation it costs 6 materials to produce an ant)
 6. While an ant is in a factory, it has a probability related to the productivity of the factory to leave. And become an ant once again
 
+![Alt text](images/image3.png?raw=true "Clustering and task allocation")
+
+Shown above is an example of the algorithm running. The red dots represent material in the enviornment. The grey dots represent factories, notice there is only one factory which is located near the center of a cluster of materials, this is the most efficient placment, which the ants have used. The other dots (blue, green and yellow) represent
+ants in different states. Blue ants are neutral, green ants are moving to pick up a target material, and yellow ants are moving to deposit the material they are holding.
 
 ### Collective preception 
 Within most animals, and escpecially humans lies an increadibly complex and powerful arsenal used to defend ourselves against pathogens - our immune system.
