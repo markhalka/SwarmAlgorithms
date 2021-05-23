@@ -61,13 +61,15 @@ in the factory. When a factory process materail, it removes the material from th
 Shown above is an example of the algorithm running. The red dots represent material in the enviornment. The grey dots represent factories, notice there is only one factory which is located near the center of a cluster of materials, this is the most efficient placment, which the ants have used. The other dots (blue, green and yellow) represent
 ants in different states. Blue ants are neutral, green ants are moving to pick up a target material, and yellow ants are moving to deposit the material they are holding.
 
-### Collective preception 
+### Collective preception (in progress)
 Within most animals, and escpecially humans lies an increadibly complex and powerful arsenal used to defend ourselves against pathogens - our immune system.
 The immune system is essentially a swarm of cells, which must collectivly locate, identify, decide, and neutralize threats. On top of all this
 the immune system (specifically the adaptive immune system) must learn and remember how to deal with new threats. This project aims to apply 
 collective preception, decision making, and learning in the context of the immune system. 
 
 Within the enviornment, there are a number of cells, which are tasked with eliminating any threats, while ignoring non-threats.
-There are a number of external entities, that differ in size, shape and type. 
+There are a number of external entities, that differ in size, shape and type. No single cell is capable of seeing the entire shape, thus they must
+work together to decide what the current shape is, and how best to attack it, if attacking is neccessary. If the shape is one they haven't seen before
+then they must learn, and memorize how best to attack it, in a similar manner as the adaptive immune system.
 
 
