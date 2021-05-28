@@ -8,7 +8,7 @@ if this is the case</b>
 
 ### Localization and collective decision making
 This project is focused on localizing a swarm of robots, using only intra-distance measurments. Below is a quick overview of the algorithm, for a complete breakdown feel free
-to take a look at the paper.
+to take a look at the [paper](Localization/Paper.pdf).
 
 The goal of a localization algorithm, is for each robot to know its position on a global coordinate frame. However, many localization algorithms rely on external
 information such as GPS, or external markers to localize. In this project, there are two different implimentations. The first 'GlobalTrilateration' uses beacon nodes.
