@@ -7,27 +7,7 @@ using UnityEngine;
 public class LocalTrilateration : Trilateration
 {
 
-    /*
-    Average error vs.iterations
-    Convergence time to< 95% error vs swarm size
-    Convergence time <95% vs.percentage of failures
-    How different parameters effect it (probability of seed, invasion)
-    Convergence time<95% vs.average noise
-    */
-    // 1. test between 100, and 1000 agents, increments of 100,  10 times each. For up to 500 (?) iterations. 
-    // for each test write to a file:
-    // - 1. number of agents, run #, 
-    // - 2. iteration #, error
-    // after each run with some agents, write: number of agents, and avg error, + min/max error, and std deviation, 
-
-    // you can also figure out convergence time with respect to the number of iterations used
-
-    // next, repeat the expriment with 1000 agents, and failure rate going from 10%-50% (as long as the graph remains at an edge connectivity level of 3 or more)
-    // next, vary p, and the other probabilties, 
-    // next, add noise to measurments, and repeat 
-
-
-
+  
     // LocalTrilateration:
     //      this class allows a swarm of Robot objects to converge to a global coordinate system
 
@@ -470,14 +450,7 @@ public class LocalTrilateration : Trilateration
         collectMeasurments();
         for (int i = robots.Count - 1; i >= 0; i--)
         {
-            if (robots[i].measurments.Count <= 2)
-            {
-                // if a robot has less than two measurements, it will not be able to localize, so remove it
-                removed++;
-                robots.RemoveAt(i);
-                continue;
-            }
-            int index = i;//Random.Range(0, robots.Count);
+            int index = Random.Range(0, robots.Count);
 
             // for the first 10 iterations, different coordinate systems are created, then the coordinate systems will converge to a single one
             if (invadeTick > 10)
@@ -570,7 +543,6 @@ public class LocalTrilateration : Trilateration
         invadeTick++;
         asyncUpdate();
         doneCount++;
-       // base.updateGuess();
         if (doneCount >= 50)
         {
             part1 = false;
@@ -586,7 +558,7 @@ public class LocalTrilateration : Trilateration
 
     public override void update()
     {
-      /*  if (part1)
+        if (part1)
         {
             invadeTick++;
             asyncUpdate();
@@ -603,6 +575,6 @@ public class LocalTrilateration : Trilateration
         else
         {          
             base.update();
-        } */
+        } 
     }
 }
